@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dev Italiya | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #0b6fc2, #091f43);
+    height: 100vh;
+}
+
+/* MAIN CONTAINER */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LEFT SIDE */
+.left {
+    width: 35%;
+    text-align: center;
+}
+
+.profile-img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    object-fit: cover;
+}
+
+/* RIGHT SIDE */
+.right {
+    width: 50%;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.right h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.right h3 {
+    font-size: 18px;
+    color: #0b6fc2;
+    margin-bottom: 15px;
+}
+
+.right p {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* CONTACT INFO */
+.contact {
+    margin-top: 20px;
+}
+
+.contact p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.contact i {
+    color: #0b6fc2;
+    margin-right: 8px;
+}
+
+/* SOCIAL ICONS */
+.social {
+    margin-top: 20px;
+}
+
+.social a {
+    font-size: 22px;
+    margin-right: 15px;
+    color: #0b6fc2;
+    transition: 0.3s;
+}
+.social a i {
+    font-size: 32px;
+    transition: 0.3s;
+}
+
+.social a i:hover {
+    transform: scale(1.2);
+    color: #091f43;
+}
+
+
+.social a:hover {
+    color: #091f43;
+}
+
+/* PAYMENT SECTION */
+h4 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.payment button {
+    margin: 10px 10px 0 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #0b6fc2;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.payment button:hover {
+    background: #091f43;
+}
+
+/* QR MODAL */
+#qrModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+#qrModal img {
+    width: 260px;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+#qrModal p {
+    color: white;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+#qrModal span {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}
+
+</style>
+<body>
+
+<div class="container">
+    <div class="left">
+        <img src="/image/pf.png" class="profile-img">
+    </div>
+
+    <div class="right">
+        <h1>Dev Italiya</h1>
+        <h3>Full Stack Web Developer</h3>
+
+        <p>
+            MCA student passionate about building modern
+            websites using HTML, CSS & JavaScript.
+        </p>
+
+        <div class="contact">
+            <p><i class="fas fa-envelope"></i> devitaliya242@email.com</p>
+            <p><i class="fas fa-phone"></i> +91 93273 85273</p>
+        </div>
+
+        <div class="social">
+            <a href="https://github.com/Devitaliya24"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/dev-italiya-190b3b2aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/dev_italiya.24?igsh=ZmZodTJoemY5bWM="><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <h4>Support / Payment</h4>
+        <div class="payment">
+           <button onclick="openQR('../image/upi.png')">UPI</button>
+            <button onclick="openQR('../image/paytm.png')">Paytm</button>
+            <button onclick="openQR('../image/gpay.png')">Google Pay</button>
+        </div>
+    </div>
+</div>
+
+<!-- QR MODAL -->
+<div id="qrModal">
+    <span onclick="closeQR()">×</span>
+    <img id="qrImage" alt="QR Code">
+    <p>Scan & Pay</p>
+</div>
+
+<script src="script.js">
+    function openQR(imagePath) {
+    document.getElementById("qrModal").style.display = "flex";
+    document.getElementById("qrImage").src = imagePath;
+}
+
+function closeQR() {
+    document.getElementById("qrModal").style.display = "none";
+}
+
+</script>
+</body>
+</html>
